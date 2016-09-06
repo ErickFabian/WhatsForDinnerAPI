@@ -10,6 +10,7 @@ gem 'tiddle', '0.7.0'
 gem "paperclip", '5.1.0'
 gem 'rack-cors', require: 'rack/cors'
 gem 'figaro', '1.1.1'
+gem 'ransack', '1.8.2'
 
 group :development do
   gem 'listen', '~> 3.0.5'

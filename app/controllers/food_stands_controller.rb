@@ -2,7 +2,10 @@ class FoodStandsController < ApplicationController
   before_action :find_food_stand, only: [:show, :destroy]
 
   def index
-    @food_stands = FoodStand.all
+    @food_stands = FoodStand.
+      ransack(JSON.parse(params[:q])).
+      result(distinct: true)
+
     render json: @food_stands
   end
 
@@ -11,7 +14,6 @@ class FoodStandsController < ApplicationController
   end
 
   def create
-    puts params.inspect
     @food_stand = FoodStand.new(permitted_attributes(FoodStand))
     if @food_stand.save
       render json: @food_stand, status: 201, location: @food_stand
