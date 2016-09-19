@@ -1,6 +1,8 @@
 class FoodStand < ApplicationRecord
   has_attached_file :cover
 
+  has_many :reviews, dependent: :destroy
+
   validates :name,
             :lat,
             :lng,
