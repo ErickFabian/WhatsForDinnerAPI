@@ -1,7 +1,9 @@
 class FoodStandSerializer < ActiveModel::Serializer
   attributes :id,
              :name,
+             :phone,
              :address,
+             :website,
              :position,
              :schedule,
              :cover
